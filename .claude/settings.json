@@ -5,7 +5,17 @@
       "WebFetch(domain:github.com)",
       "Bash(uv pip install:*)",
       "Bash(uv run pytest:*)",
-      "Bash(uv run python3:*)"
+      "Bash(uv run python3:*)",
+      "Bash(xargs ls -la)",
+      "Bash(wc -l /Users/seanmayfield/Documents/source/spec-agent-skills/tests/*.py)",
+      "Bash(uv lock)",
+      "Bash(uv sync --all-packages)",
+      "Bash(uv run python main.py)",
+      "Bash(git -C /Users/seanmayfield/Documents/source/spec-agent-skills log --oneline -10)",
+      "Bash(git -C /Users/seanmayfield/Documents/source/spec-agent-skills show HEAD:src/spec_agent_skills/__init__.py)",
+      "Bash(wc -l /Users/seanmayfield/Documents/source/spec-agent-skills/.claude/commands/*.md)",
+      "Bash(python -m pytest packages/agent-skills/tests/ -v)",
+      "Bash(python -m pytest --tb=short)"
     ]
   }
 }

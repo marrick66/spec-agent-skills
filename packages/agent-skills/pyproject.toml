@@ -1,0 +1,22 @@
+[project]
+name = "agent-skills"
+version = "0.1.0"
+description = "Agent Skills specification as Strands Agents tools"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "jinja2>=3.1.6",
+    "pydantic>=2.0",
+    "pyyaml>=6.0",
+    "strands-agents>=1.27.0",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/agent_skills"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

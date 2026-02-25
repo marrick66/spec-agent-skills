@@ -2,13 +2,13 @@
 
 from pathlib import Path
 
-from spec_agent_skills import SkillRegistry
+from agent_skills import FileSystemSkillRegistry
 
 
 def main():
     skills_dir = Path(__file__).parent / "skills"
 
-    registry = SkillRegistry()
+    registry = FileSystemSkillRegistry()
 
     if skills_dir.is_dir():
         loaded = registry.load_skills_from_directory(skills_dir)

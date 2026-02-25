@@ -1,0 +1,8 @@
+.claude/
+.pytest_cache/
+.venv/
+.python-version
+
+*.ipynb
+
+__pycache__/

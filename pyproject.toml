@@ -1,20 +1,21 @@
 [project]
-name = "spec-agent-skills"
-version = "0.1.0"
-description = "Agent Skills specification as Strands Agents tools"
-readme = "README.md"
+name = "spec-agent-skills-workspace"
+version = "0.0.0"
+description = "Agent Skills monorepo workspace"
 requires-python = ">=3.13"
 dependencies = [
-    "strands-agents>=1.27.0",
-    "pyyaml>=6.0",
+    "agent-skills",
+    "personas"
 ]
 
-[project.optional-dependencies]
-dev = ["pytest>=8.0"]
+[tool.uv.workspace]
+members = ["packages/*"]
 
-[build-system]
-requires = ["hatchling"]
-build-backend = "hatchling.build"
+[tool.uv.sources]
+agent-skills = { workspace = true }
+personas = { workspace = true }
 
-[tool.hatch.build.targets.wheel]
-packages = ["src/spec_agent_skills"]
+[dependency-groups]
+dev = [
+    "pytest>=8.0",
+]

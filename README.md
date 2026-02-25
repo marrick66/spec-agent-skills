@@ -7,20 +7,20 @@ Load skills from disk, register them in memory, and give your agent tools for pr
 ## Installation
 
 ```bash
-pip install spec-agent-skills
+pip install agent-skills
 ```
 
 Or with [uv](https://docs.astral.sh/uv/):
 
 ```bash
-uv add spec-agent-skills
+uv add agent-skills
 ```
 
 ## Quick Start
 
 ```python
 from strands import Agent
-from spec_agent_skills import SkillRegistry
+from agent_skills import SkillRegistry
 
 # Load skills from a directory
 registry = SkillRegistry()
@@ -54,7 +54,7 @@ The agent discovers skills via metadata in the system prompt, activates the ones
 The central class for managing skills.
 
 ```python
-from spec_agent_skills import SkillRegistry
+from agent_skills import SkillRegistry
 
 registry = SkillRegistry()
 ```
@@ -110,7 +110,7 @@ len(registry)                     # Number of loaded skills
 ### Data Models
 
 ```python
-from spec_agent_skills import Skill, SkillMetadata, SkillResources
+from agent_skills import Skill, SkillMetadata, SkillResources
 ```
 
 - **`SkillMetadata`** — Frontmatter fields: `name`, `description`, plus optional `license`, `compatibility`, `metadata`, `allowed_tools`
@@ -120,7 +120,7 @@ from spec_agent_skills import Skill, SkillMetadata, SkillResources
 ### Standalone Parsing
 
 ```python
-from spec_agent_skills import parse_skill, validate_skill_directory
+from agent_skills import parse_skill, validate_skill_directory
 
 validate_skill_directory(Path("./skills/my-skill"))  # Raises on invalid
 skill = parse_skill("./skills/my-skill")             # Returns a Skill
@@ -162,11 +162,11 @@ See the full [Agent Skills specification](https://agentskills.io/specification) 
 ## Development
 
 ```bash
-# Install with dev dependencies
-uv pip install -e ".[dev]"
+# Install all workspace packages
+uv sync --all-packages
 
 # Run tests
-uv run pytest tests/ -v
+uv run pytest packages/agent-skills/tests/ -v
 ```
 
 ## License
